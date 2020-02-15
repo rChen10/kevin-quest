@@ -18,12 +18,10 @@ func update_stamina():
 		stamina -= 1
 		moving_counter = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func process_input():
 	var moving = Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_down")
 	if moving:
 		update_stamina()
-			
 		if Input.is_action_pressed("ui_up"):
 			direction = "up"
 			velocity.y = -SPEED
@@ -34,8 +32,7 @@ func _physics_process(delta):
 			velocity.y = SPEED
 			velocity.x = 0
 			$AnimatedSprite.play("walkdown")
-			
-		if Input.is_action_pressed("ui_right"):
+		elif Input.is_action_pressed("ui_right"):
 			direction = "right"
 			velocity.x = SPEED
 			velocity.y = 0
@@ -56,5 +53,8 @@ func _physics_process(delta):
 			$AnimatedSprite.play("idleright")
 		elif direction == "down":
 			$AnimatedSprite.play("idlefront")
-			
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	process_input()
 	velocity = move_and_slide(velocity)
