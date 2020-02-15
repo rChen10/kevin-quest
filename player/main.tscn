@@ -45,11 +45,6 @@ animations = [ {
 "name": "idleright",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "idlefront",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "idleback",
@@ -58,6 +53,11 @@ animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "walkleft",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "idlefront",
 "speed": 7.0
 } ]
 
@@ -132,38 +132,6 @@ frames = SubResource( 3 )
 animation = "closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chest1"]
-position = Vector2( -0.177246, 13.3904 )
-z_as_relative = false
-shape = SubResource( 4 )
-
-[node name="Chest2" type="StaticBody2D" parent="."]
-position = Vector2( 4286, -1400 )
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Chest2"]
-frames = SubResource( 3 )
-animation = "closed"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest2"]
-position = Vector2( -0.177246, 13.3904 )
-z_as_relative = false
-shape = SubResource( 4 )
-
-[node name="Chest3" type="StaticBody2D" parent="."]
-position = Vector2( 4286, -1400 )
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Chest3"]
-frames = SubResource( 3 )
-animation = "closed"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest3"]
 position = Vector2( -0.177246, 13.3904 )
 z_as_relative = false
 shape = SubResource( 4 )
