@@ -9,16 +9,20 @@ var turn_count = 0
 var moving_counter = 0
 const SPEED = 200
 
-	
+
+
+func update_stamina():
+	moving_counter += 1
+	if moving_counter == 30:
+		turn_count += 1
+		stamina -= 1
+		moving_counter = 0
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	var moving = Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_down")
 	if moving:
-		moving_counter += 1
-		if moving_counter == 30:
-			turn_count += 1
-			stamina -= 1
-			moving_counter = 0
+		update_stamina()
 			
 		if Input.is_action_pressed("ui_up"):
 			direction = "up"
@@ -44,8 +48,6 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0
 		velocity.y = 0
-		
-	if moving == false:
 		if direction == "up":
 			$AnimatedSprite.play("idleback")
 		elif direction == "left":
