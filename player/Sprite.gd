@@ -1,17 +1,6 @@
-extends Area2D
+extends StaticBody2D
 
+const FACE = Vector2(0, -1)
 
-func _ready():
-	connect("body_entered", self, "_area_entered")
-	connect("body_exited", self, "_area_exited")
-
-
-func _area_entered(object):
-	handle_open_chest()
-
-func _area_exited(object):
-	pass
-
-
-func handle_open_chest():
-	pass
+func chest_open():
+	$AnimatedSprite.play("open")

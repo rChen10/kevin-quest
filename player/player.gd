@@ -9,7 +9,7 @@ var turn_count = 0
 var moving_counter = 0
 const SPEED = 200
 
-
+		
 
 func update_stamina():
 	moving_counter += 1
@@ -20,6 +20,12 @@ func update_stamina():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.name == "Chest1": 
+			if Input.is_action_pressed("ui_accept"):
+				get_parent().get_node("Chest1").chest_open()
+	
 	var moving = Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_down")
 	if moving:
 		update_stamina()

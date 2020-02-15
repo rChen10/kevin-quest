@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://player/main.gd" type="Script" id=1]
 [ext_resource path="res://player/tiles.tres" type="TileSet" id=2]
@@ -6,16 +6,17 @@
 [ext_resource path="res://player/player_left_idle_1.png" type="Texture" id=4]
 [ext_resource path="res://player/player_right_idle_1.png" type="Texture" id=5]
 [ext_resource path="res://player/player_right_walk_1.png" type="Texture" id=6]
-[ext_resource path="res://player/player_walk_front_1.png" type="Texture" id=7]
-[ext_resource path="res://player/player_idle_front_1.png" type="Texture" id=8]
-[ext_resource path="res://player/player_walk_front_2.png" type="Texture" id=9]
-[ext_resource path="res://player/player_walk_back_1.png" type="Texture" id=10]
-[ext_resource path="res://player/player_idle_back_1.png" type="Texture" id=11]
-[ext_resource path="res://player/player_walk_back_2.png" type="Texture" id=12]
+[ext_resource path="res://player/player_walk_back_1.png" type="Texture" id=7]
+[ext_resource path="res://player/player_idle_back_1.png" type="Texture" id=8]
+[ext_resource path="res://player/player_walk_back_2.png" type="Texture" id=9]
+[ext_resource path="res://player/player_walk_front_1.png" type="Texture" id=10]
+[ext_resource path="res://player/player_idle_front_1.png" type="Texture" id=11]
+[ext_resource path="res://player/player_walk_front_2.png" type="Texture" id=12]
 [ext_resource path="res://player/player_left_walk_1.png" type="Texture" id=13]
 [ext_resource path="res://player/RichTextLabel.gd" type="Script" id=14]
-[ext_resource path="res://chest_2.png" type="Texture" id=15]
-[ext_resource path="res://chest_1.png" type="Texture" id=16]
+[ext_resource path="res://player/Sprite.gd" type="Script" id=15]
+[ext_resource path="res://chest_2.png" type="Texture" id=16]
+[ext_resource path="res://chest_1.png" type="Texture" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -31,17 +32,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "walkdown",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "idlefront",
+"name": "walkup",
 "speed": 7.0
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "walkup",
+"name": "walkdown",
 "speed": 7.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -50,6 +46,11 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "idlefront",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "idleback",
 "speed": 5.0
@@ -63,20 +64,20 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 19, 19 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "open",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ) ],
+"loop": false,
+"name": "open",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 17 ) ],
 "loop": false,
 "name": "closed",
 "speed": 0.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 29.958, 19.543 )
 
 [node name="Node2D" type="Node2D"]
@@ -119,14 +120,50 @@ margin_bottom = 108.368
 scroll_active = false
 script = ExtResource( 14 )
 
-[node name="Sprite" type="StaticBody2D" parent="."]
+[node name="Chest1" type="StaticBody2D" parent="."]
 position = Vector2( 4286, -1400 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="AnimatedSprite" parent="Sprite"]
-frames = SubResource( 4 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Chest1"]
+frames = SubResource( 3 )
 animation = "closed"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest1"]
 position = Vector2( -0.177246, 13.3904 )
 z_as_relative = false
-shape = SubResource( 3 )
+shape = SubResource( 4 )
+
+[node name="Chest2" type="StaticBody2D" parent="."]
+position = Vector2( 4286, -1400 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Chest2"]
+frames = SubResource( 3 )
+animation = "closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest2"]
+position = Vector2( -0.177246, 13.3904 )
+z_as_relative = false
+shape = SubResource( 4 )
+
+[node name="Chest3" type="StaticBody2D" parent="."]
+position = Vector2( 4286, -1400 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Chest3"]
+frames = SubResource( 3 )
+animation = "closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest3"]
+position = Vector2( -0.177246, 13.3904 )
+z_as_relative = false
+shape = SubResource( 4 )
