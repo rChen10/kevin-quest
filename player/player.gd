@@ -4,7 +4,7 @@ extends KinematicBody2D
 var direction = "down"
 var velocity = Vector2()
 
-var stamina = 10
+var stamina = 100
 var turn_count = 0
 var moving_counter = 0
 const SPEED = 200
