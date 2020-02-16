@@ -85,6 +85,9 @@ func _physics_process(delta):
 			elif invul == 0:
 				update_health()
 				invul = 20
+		elif collision.collider.name == "le_chunge":
+			if Input.is_action_just_pressed("ui_accept"):
+				get_parent().get_node(collision.collider.name).interact()
 	if invul > 0:
 		invul -= 1
 	velocity = move_and_slide(velocity)
