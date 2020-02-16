@@ -55,25 +55,25 @@ animations = [ {
 "name": "walkright",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "walkleft",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "idleback",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "walkleft",
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "idleleft",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "walkup",
-"speed": 7.0
+"name": "game",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ) ],
 "loop": true,
@@ -85,10 +85,10 @@ animations = [ {
 "name": "idlefront",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "game",
-"speed": 5.0
+"name": "walkup",
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -97,19 +97,14 @@ extents = Vector2( 12, 15 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "70",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "full",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
-"loop": false,
-"name": "0",
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "70",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],
@@ -122,24 +117,14 @@ animations = [ {
 "name": "40",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 18 ) ],
+"loop": false,
+"name": "0",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "50",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "20",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ) ],
-"loop": true,
-"name": "10",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "30",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 19 ) ],
@@ -147,9 +132,24 @@ animations = [ {
 "name": "80",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "30",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "10",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
 "name": "90",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "20",
 "speed": 5.0
 } ]
 
